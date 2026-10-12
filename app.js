@@ -185,8 +185,10 @@ function showRaceLayer() {
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed', active);
   });
+  map.invalidateSize({ pan: false });
   map.fitBounds(state.raceLayer.bounds, { padding: [34, 34] });
   setTrackIndex(state.index);
+  window.requestAnimationFrame(() => map.invalidateSize({ pan: false }));
 }
 
 function showReturnLayer(routeIndex = 3) {
@@ -209,7 +211,9 @@ function showReturnLayer(routeIndex = 3) {
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed', active);
   });
+  map.invalidateSize({ pan: false });
   map.fitBounds(state.returnLayer.bounds, { padding: [34, 34] });
+  window.requestAnimationFrame(() => map.invalidateSize({ pan: false }));
 }
 
 async function loadTrack() {
@@ -223,8 +227,8 @@ async function loadTrack() {
     if (!map || !state.track.length) return;
 
     const all = state.track.map(point => [point.lat, point.lon]);
-    const trace = L.polyline(all, { color: '#0c6472', weight: 4, opacity: .44 });
-    const progress = L.polyline([], { color: '#c6533b', weight: 5, opacity: .96 });
+    const trace = L.polyline(all, { color: '#0c6472', weight: 6, opacity: .72, lineCap: 'round', lineJoin: 'round' });
+    const progress = L.polyline([], { color: '#c6533b', weight: 7, opacity: .98, lineCap: 'round', lineJoin: 'round' });
     state.boat = L.marker(all[0], { icon: boatIcon, zIndexOffset: 600 });
     const start = L.marker(all[0], { icon: nauticalIcon('BA') }).bindPopup('<strong>Buenos Aires</strong><br>Inicio del registro GPS');
     const puntaIndex = nearestTrackIndex(-34.9591, -54.9576);
