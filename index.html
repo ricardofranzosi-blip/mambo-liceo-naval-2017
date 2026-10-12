@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cartografía interactiva de la travesía del Mambo Liceo Naval en la Regata Buenos Aires–Río 2017 y memoria de la XXXV Promoción.">
+  <title>Mambo 2017 · La XXXV rumbo a Río</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynhHd8hVz9MZbK4ukvv0cHv6U4hI=" crossorigin="">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Mambo 2017, inicio">
+      <span class="brand-mark">M</span>
+      <span>Mambo 2017</span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <a href="#ruta">Ruta</a>
+      <a href="#historia">Historia</a>
+      <a href="#pov">POV</a>
+      <a href="#archivo">Archivo</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <span class="eyebrow">BITÁCORA DE NAVEGACIÓN · XXXV PROMOCIÓN</span>
+        <h1>La XXXV<br>rumbo a Río</h1>
+        <p class="lead">El track del <strong>Mambo Liceo Naval</strong>, la regata Buenos Aires–Río de Janeiro de 2017 y las voces de quienes hicieron del viaje una aventura compartida.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#ruta">Explorar la ruta</a>
+          <a class="button ghost" href="#pov">Leer el POV</a>
+        </div>
+        <dl class="hero-facts" aria-label="Datos principales">
+          <div><dt>242:53:29</dt><dd>tiempo oficial</dd></div>
+          <div><dt>6</dt><dd>tripulantes de la XXXV</dd></div>
+          <div><dt>Victory 40</dt><dd>Mambo Liceo Naval</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-visual" aria-label="Ilustración del Mambo y su derrota hacia Río">
+        <svg viewBox="0 0 760 620" role="img" aria-labelledby="hero-svg-title hero-svg-desc">
+          <title id="hero-svg-title">El Mambo navegando hacia Río</title>
+          <desc id="hero-svg-desc">Ilustración náutica con el velero, una rosa de los vientos y la derrota Buenos Aires–Río.</desc>
+          <defs>
+            <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#dfe9e7"/>
+              <stop offset="1" stop-color="#b8d4d3"/>
+            </linearGradient>
+            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#082f38" flood-opacity=".18"/>
+            </filter>
+          </defs>
+          <rect width="760" height="620" rx="38" fill="url(#sea)"/>
+          <path d="M0 430 C110 400 170 465 280 430 C390 394 450 470 560 427 C640 397 704 425 760 410 L760 620 L0 620Z" fill="#2c7380" opacity=".38"/>
+          <path d="M0 482 C110 452 180 510 290 477 C405 443 500 515 610 473 C675 448 720 466 760 457" fill="none" stroke="#f7f4ec" stroke-width="5" opacity=".75"/>
+          <path d="M134 248 C260 210 410 168 625 95" fill="none" stroke="#c64e36" stroke-width="5" stroke-dasharray="5 14" stroke-linecap="round"/>
+          <circle cx="130" cy="250" r="10" fill="#c64e36"/><circle cx="625" cy="95" r="10" fill="#c64e36"/>
+          <text x="82" y="285" font-family="Arial" font-size="18" fill="#173d46">BUENOS AIRES</text>
+          <text x="603" y="78" font-family="Arial" font-size="18" fill="#173d46">RÍO</text>
+          <g filter="url(#shadow)" transform="translate(172 210)">
+            <path d="M32 246 H430 L382 302 H86Z" fill="#0b5969"/>
+            <path d="M100 298 H375" stroke="#f7f4ec" stroke-width="6"/>
+            <path d="M232 15 V250" stroke="#173d46" stroke-width="8"/>
+            <path d="M224 33 L97 231 H224Z" fill="#f9f6ef" stroke="#173d46" stroke-width="4"/>
+            <path d="M243 53 L405 225 H243Z" fill="#f2d7b9" stroke="#173d46" stroke-width="4"/>
+            <path d="M177 264 H305" stroke="#f7f4ec" stroke-width="5"/>
+            <text x="194" y="287" font-family="Georgia" font-weight="700" font-style="italic" font-size="29" fill="#f7f4ec">MAMBO</text>
+          </g>
+          <g transform="translate(638 480)" opacity=".72">
+            <circle r="63" fill="none" stroke="#173d46" stroke-width="2"/>
+            <path d="M0 -74 L10 -12 L0 0 L-10 -12Z M74 0 L12 10 L0 0 L12 -10Z M0 74 L-10 12 L0 0 L10 12Z M-74 0 L-12 -10 L0 0 L-12 10Z" fill="#173d46"/>
+            <text x="-7" y="-84" font-family="Arial" font-weight="700" fill="#173d46">N</text>
+          </g>
+        </svg>
+        <span class="visual-caption">Mambo · Victory 40 · ARG 3218</span>
+      </div>
+    </section>
+
+    <section class="map-section" id="ruta">
+      <div class="section-heading wide">
+        <div>
+          <span class="eyebrow">EL VIAJE EN DOS CAPAS</span>
+          <h2>Una ruta, dos relatos</h2>
+        </div>
+        <p>La línea continua reproduce el track GPS de la regata de ida. La línea punteada ubica, de forma aproximada, las escalas mencionadas en el relato del regreso.</p>
+      </div>
+
+      <div class="map-shell">
+        <div class="map-toolbar" role="group" aria-label="Elegir capa del viaje">
+          <button class="layer-button active" data-layer="race" aria-pressed="true">Regata GPS</button>
+          <button class="layer-button" data-layer="return" aria-pressed="false">Regreso narrado</button>
+        </div>
+        <div id="map" aria-label="Mapa interactivo del viaje del Mambo"></div>
+        <aside class="map-panel" aria-live="polite">
+          <span class="panel-kicker" id="panelKicker">TRACK GPS · IDA</span>
+          <h3 id="panelTitle">Buenos Aires → Río</h3>
+          <div class="position-grid">
+            <div><small>Fecha y hora</small><strong id="positionTime">11 feb · 09:14</strong></div>
+            <div><small>Posición</small><strong id="positionCoords">34°36′S · 58°22′W</strong></div>
+          </div>
+          <p id="panelText">Deslizá la derrota o reproducí el track para seguir al Mambo.</p>
+          <div class="player" id="racePlayer">
+            <button id="playTrack" class="play-button" aria-label="Reproducir track">▶</button>
+            <input id="trackRange" type="range" min="0" max="100" value="0" aria-label="Progreso del track">
+          </div>
+          <div class="day-jumps" id="dayJumps" aria-label="Saltar a un día del track"></div>
+        </aside>
+      </div>
+      <p class="map-note"><strong>Lectura responsable:</strong> el GPS contiene 1.546 registros originales. Para la visualización se omiten unas pocas muestras congeladas o con velocidades instrumentales imposibles. No se inventan posiciones para el regreso.</p>
+    </section>
+
+    <section class="story-section" id="historia">
+      <div class="section-heading">
+        <span class="eyebrow">DE LA IDEA A LA LLEGADA</span>
+        <h2>El camino antes del objetivo</h2>
+        <p>Las publicaciones de <em>Proa al Centro</em> permiten reconstruir la preparación, la regata y el regreso.</p>
+      </div>
+      <div class="story-grid">
+        <article class="story-card">
+          <span>01 · ENERO 2017</span>
+          <h3>El proyecto</h3>
+          <p>La aventura había comenzado dos años y medio antes. El grupo buscó un barco durante casi un año y eligió al Mambo, un Victory 40 diseñado por Domato. Repararlo, equiparlo y sumar millas también fue parte del viaje.</p>
+          <a href="https://www.sas.cglnm.com.ar/public/PAC/177/Proa_al_Centro_177.pdf" target="_blank" rel="noopener">Proa al Centro Nº 177 · “El Mambo se va a Río”</a>
+        </article>
+        <article class="story-card accent">
+          <span>02 · 11 FEB 2017</span>
+          <h3>La largada</h3>
+          <p>Por primera vez una tripulación completamente liceana y de una misma promoción largó la Buenos Aires–Río. Los primeros tres días, con vientos de 25 a 30 nudos, hicieron difícil abandonar el Río de la Plata.</p>
+          <button class="text-button" data-map-jump="punta">Ver el paso frente a Punta del Este →</button>
+        </article>
+        <article class="story-card">
+          <span>03 · 21 FEB 2017</span>
+          <h3>Guanabara</h3>
+          <p>El Mambo cruzó la llegada con un tiempo oficial de 242 horas, 53 minutos y 29 segundos. La clasificación lo registra en la Serie B, con Juan Theodorou como timonel.</p>
+          <a href="https://buenosairesrio.org.ar/2017/02/19/resultados-finales/" target="_blank" rel="noopener">Resultados oficiales de la regata</a>
+        </article>
+        <article class="story-card crew-card">
+          <span>LA TRIPULACIÓN</span>
+          <h3>Seis compañeros</h3>
+          <ul>
+            <li>Ricardo “Francho” Franzosi</li>
+            <li>Juan “Huevo” Theodorou</li>
+            <li>Sergio “Cacho” Arduini</li>
+            <li>Esteban “Steve” Casares</li>
+            <li>Gabriel “Manotas” Martini</li>
+            <li>Pablo “Infante” Matoska</li>
+          </ul>
+          <a href="https://www.sas.cglnm.com.ar/public/PAC/179/Proa_al_Centro_179.pdf" target="_blank" rel="noopener">Proa al Centro Nº 179 · “Surgirá un campeón...”</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="pov-section" id="pov">
+      <div class="section-heading pov-heading">
+        <span class="eyebrow">POINT OF VIEW · RAÚL HORACIO ADINOLFI</span>
+        <h2>“Una cascarita de nuez”</h2>
+        <p>El track de ida termina en Río. Esta voz comienza después, en Florianópolis, durante la travesía de regreso. El relato se reproduce íntegro; sólo se normalizaron espacios y signos tipográficos. La ruta de regreso se dibuja como reconstrucción narrativa, no como GPS.</p>
+      </div>
+
+      <div class="pov-layout">
+        <div class="pov-nav" role="tablist" aria-label="Capítulos del relato">
+          <button class="pov-tab active" role="tab" aria-selected="true" data-pov="0">01 · La posta</button>
+          <button class="pov-tab" role="tab" aria-selected="false" data-pov="1">02 · Zarpar</button>
+          <button class="pov-tab" role="tab" aria-selected="false" data-pov="2">03 · Seis días</button>
+          <button class="pov-tab" role="tab" aria-selected="false" data-pov="3">04 · Punta del Este</button>
+          <button class="pov-tab" role="tab" aria-selected="false" data-pov="4">05 · Última derrota</button>
+          <button class="pov-tab" role="tab" aria-selected="false" data-pov="5">06 · La amarra</button>
+        </div>
+
+        <article class="pov-reader" id="povReader" tabindex="0">
+          <div class="pov-meta"><span id="povPlace">Florianópolis</span><span id="povCounter">01 / 06</span></div>
+          <h3 id="povTitle">Las palabras siempre quedarán escuetas</h3>
+          <div id="povText" class="pov-text"></div>
+          <div class="pov-actions">
+            <button id="povPrev" class="button ghost" disabled>← Anterior</button>
+            <button id="povNext" class="button primary">Siguiente →</button>
+          </div>
+        </article>
+      </div>
+      <p class="attribution">Relato íntegro de Raúl Horacio Adinolfi · XXXV Promoción (250 Folsi).</p>
+    </section>
+
+    <section class="archive-section" id="archivo">
+      <div class="section-heading wide">
+        <div>
+          <span class="eyebrow">ARCHIVO VIVO</span>
+          <h2>Preparar, navegar, recordar</h2>
+        </div>
+        <p>Video, publicaciones y documentos que permiten volver a entrar en la historia.</p>
+      </div>
+
+      <div class="archive-gallery" aria-label="Fotografías documentales del Mambo">
+        <figure class="archive-photo sail-photo">
+          <img src="data:image/webp;base64,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" alt="El velero Mambo navegando a vela antes de la Regata Buenos Aires–Río 2017">
+          <figcaption><strong>El Mambo a vela.</strong> Archivo de la tripulación, publicado en <em>Proa al Centro</em> Nº 177, pág. 18.</figcaption>
+        </figure>
+        <figure class="archive-photo return-photo">
+          <div class="archive-illustration return-illustration" role="img" aria-label="Archivo de la tripulación: regreso del Mambo desde Florianópolis a Buenos Aires">
+            <span>ARCHIVO DE LA TRIPULACIÓN</span>
+            <strong>MAMBO · REGRESO</strong>
+            <small>Florianópolis → Punta del Este → Buenos Aires</small>
+          </div>
+          <figcaption><strong>El regreso.</strong> Archivo de la tripulación, publicado en <em>Proa al Centro</em> Nº 179, pág. 22.</figcaption>
+        </figure>
+      </div>
+
+      <div class="archive-grid">
+        <article class="video-card">
+          <div class="video-frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/zVDHWkZg1po" title="Mambo Liceo Naval, Regata a Buenos Aires–Río" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="archive-copy">
+            <span>VIDEO · RICARDO FRANZOSI</span>
+            <h3>Mambo Liceo Naval · Regata a BA–Río</h3>
+            <p>Recuerdos de la preparación, la meta y el regreso del Mambo.</p>
+          </div>
+        </article>
+
+        <article class="social-card">
+          <div class="social-badge">f</div>
+          <span>PUBLICACIÓN · 4 JUN 2018</span>
+          <h3>Velero Mambo Liceo Naval</h3>
+          <p>Una imagen de la comunidad a bordo, de la cuenta de Ricardo Franzosi. La incorporamos como pieza posterior a la regata, vinculada al nuevo rol del Mambo.</p>
+          <a class="button dark" href="https://www.facebook.com/photo/?fbid=617156321966627&amp;set=a.136955889986675" target="_blank" rel="noopener">Abrir en Facebook</a>
+          <a class="button dark" href="https://www.facebook.com/ricardo.franzosi/?locale=es_LA" target="_blank" rel="noopener">Ver perfil de Ricardo</a>
+        </article>
+
+        <article class="source-card">
+          <span>PUBLICACIONES</span>
+          <h3>Proa al Centro</h3>
+          <ol>
+            <li><a href="https://www.sas.cglnm.com.ar/public/PAC/177/Proa_al_Centro_177.pdf" target="_blank" rel="noopener"><strong>Nº 177</strong> · La preparación</a></li>
+            <li><a href="https://www.sas.cglnm.com.ar/system/files/Proa_al_Centro_178.pdf" target="_blank" rel="noopener"><strong>Nº 178</strong> · La participación y la galería</a></li>
+            <li><a href="https://www.sas.cglnm.com.ar/public/PAC/179/Proa_al_Centro_179.pdf" target="_blank" rel="noopener"><strong>Nº 179</strong> · La regata y el regreso</a></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>Mambo 2017</strong><br><span>Memoria interactiva de la XXXV Promoción.</span></div>
+    <p>Track GPS, relato y fotografías del archivo de la tripulación aportados por Ricardo Franzosi. Uso autorizado por sus autores para esta memoria. Fuentes documentales enlazadas en cada sección.</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
